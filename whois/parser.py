@@ -384,11 +384,138 @@ class WhoisEntry(dict):
             domain.endswith('.city') or
             domain.endswith('.credit') or
             domain.endswith('.agency') or
-            domain.endswith('.community')
+            domain.endswith('.community') or
+            domain.endswith('.network')
         ):
             return WhoisCity(domain, text)
         elif domain.endswith('.aero'):
             return WhoisAero(domain, text)
+        # elif domain.endswith('.network'):
+        #     return WhoisNetwork(domain, text)
+        # elif domain.endswith('.goog'):
+        #     return WhoisGoog(domain, text)
+        # elif domain.endswith('.asia'):
+        #     return WhoisAsia(domain, text)
+        # elif domain.endswith('.top'):
+        #     return WhoisTop(domain, text)
+        # elif domain.endswith('.berlin'):
+        #     return WhoisBerlin(domain, text)
+        # elif domain.endswith('.bike'):
+        #     return WhoisBike(domain, text)
+        # elif domain.endswith('.deals'):
+        #     return WhoisDeals(domain, text)
+        # elif domain.endswith('.domains'):
+        #     return WhoisDomains(domain, text)
+        # elif domain.endswith('.gl'):
+        #     return WhoisGl(domain, text)
+        # elif domain.endswith('.lease'):
+        #     return WhoisLease(domain, text)
+        # elif domain.endswith('.one'):
+        #     return WhoisOne(domain, text)
+        # elif domain.endswith('.photo'):
+        #     return WhoisPhoto(domain, text)
+        # elif domain.endswith('.academy'):
+        #     return WhoisAcademy(domain, text)
+        # elif domain.endswith('amsterdam'):
+        #     return WhoisAmsterdam(domain, text)
+        # elif domain.endswith('.bio'):
+        #     return WhoisBio(domain, text)
+        # elif domain.endswith('.ac'):
+        #     return WhoisAc(domain, text)
+        # elif domain.endswith('.ag'):
+        #     return WhoisAg(domain, text)
+        # elif domain.endswith('.cd'):
+        #     return WhoisCd(domain, text)
+        # elif domain.endswith('.ci'):
+        #     return WhoisCi(domain, text)
+        # elif domain.endswith('.co'):
+        #     return WhoisCo(domain, text)
+        # elif domain.endswith('.cx'):
+        #     return WhoisCx(domain, text)
+        # elif domain.endswith('.dm'):
+        #     return WhoisDm(domain, text)    
+        # elif domain.endswith('.fo'):
+        #     return WhoisFo(domain, text)
+        # elif domain.endswith('.gd'):
+        #     return WhoisGd(domain, text)
+        # elif domain.endswith('.ge'):
+        #     return WhoisGe(domain, text)
+        # elif domain.endswith('.gq'):
+        #     return WhoisGq(domain, text)
+        # elif domain.endswith('.gs'):
+        #     return WhoisGs(domain, text)
+        # elif domain.endswith('.gy'):
+        #     return WhoisGy(domain, text)
+        # elif domain.endswith('.ht'):
+        #     return WhoisHt(domain, text)
+        # elif domain.endswith('.ke'):
+        #     return WhoisKe(domain, text)
+        # elif domain.endswith('.kn'):
+        #     return WhoisKn(domain, text)
+        # elif domain.endswith('.ky'):
+        #     return WhoisKy(domain, text)
+        # elif domain.endswith('.kz'):
+        #     return WhoisKz(domain, text)
+        # elif domain.endswith('.la'):
+        #     return WhoisLa(domain, text)
+        # elif domain.endswith('.lc'):
+        #     return WhoisLc(domain, text)
+        # elif domain.endswith('.ly'):
+        #     return WhoisLy(domain, text)
+        # elif domain.endswith('.ma'):
+        #     return WhoisMa(domain, text)
+        # elif domain.endswith('.md'):
+        #     return WhoisMd(domain, text)
+        # elif domain.endswith('.mg'):
+        #     return WhoisMg(domain, text)
+        # elif domain.endswith('.mn'):
+        #     return WhoisMn(domain, text)
+        # elif domain.endswith('.ms'):
+        #     return WhoisMs(domain, text)
+        # elif domain.endswith('.mu'):
+        #     return WhoisMu(domain, text)
+        # elif domain.endswith('.nc'):
+        #     return WhoisNc(domain, text)
+        # elif domain.endswith('.nf'):
+        #     return WhoisNf(domain, text)
+        # elif domain.endswith('.ng'):
+        #     return WhoisNg(domain, text)
+        # elif domain.endswith('.om'):
+        #     return WhoisOm(domain, text)
+        # elif domain.endswith('.cloud'):
+        #     return WhoisCloud(domain, text)
+        # elif domain.endswith('.icu'):
+        #     return WhoisIcu(domain, text)
+        # elif domain.endswith('.xyz'):
+        #     return WhoisXyz(domain, text)
+        # elif domain.endswith('.page'):
+        #     return WhoisPage(domain, text)
+        # elif domain.endswith('.paris'):
+        #     return WhoisParis(domain, text)
+        # elif domain.endswith('.ps'):
+        #     return WhoisPs(domain, text)
+        # elif domain.endswith('.fashion'):
+        #     return WhoisFashion(domain, text)
+        # elif domain.endswith('.finance'):
+        #     return WhoisFinance(domain, text)
+        # elif domain.endswith('.london'):
+        #     return WhoisLondon(domain, text)
+        # elif domain.endswith('.estate'):
+        #     return WhoisEstate(domain, text)
+        # elif domain.endswith('.rocks'):
+        #     return WhoisRocks(domain, text)
+        # elif domain.endswith('.cards'):
+        #     return WhoisCards(domain, text)
+        # elif domain.endswith('.glass'):
+        #     return WhoisGlass(domain, text)
+        # elif domain.endswith('.melbourne'):
+        #     return WhoisMelbourne(domain, text)
+        # elif domain.endswith('.wales'):
+        #     return WhoisWales(domain, text)
+        # elif domain.endswith('.digital'):
+        #     return WhoisDigital(domain, text)
+        # elif domain.endswith('.vegas'):
+        #     return WhoisVegas(domain, text)
         else:
             return WhoisEntry(domain, text)
 
@@ -3054,7 +3181,7 @@ class WhoisZa(WhoisEntry):
 
 
 class WhoisCity(WhoisEntry):
-    """""Whois parser for .city, .credit, .agency, .community domains
+    """""Whois parser for .city, .credit, .agency, .community, .network domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
