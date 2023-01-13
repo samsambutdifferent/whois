@@ -1,10 +1,10 @@
-Domain Name: london.city
-Registry Domain ID: a8cc884730ef4851a4ee0c41b27a9e42-DONUTS
+Domain Name: business.community
+Registry Domain ID: 1b4efe3cf487439594535942d9661818-DONUTS
 Registrar WHOIS Server: whois.godaddy.com/
 Registrar URL: http://www.godaddy.com/domains/search.aspx?ci=8990
-Updated Date: 2022-02-20T16:40:14Z
-Creation Date: 2015-08-01T16:00:00Z
-Registry Expiry Date: 2022-08-01T16:00:00Z
+Updated Date: 2021-03-18T01:30:40Z
+Creation Date: 2015-12-07T14:44:29Z
+Registry Expiry Date: 2023-12-07T14:44:29Z
 Registrar: GoDaddy.com, LLC
 Registrar IANA ID: 146
 Registrar Abuse Contact Email: email@godaddy.com
@@ -15,7 +15,7 @@ Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProh
 Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
 Registry Registrant ID: REDACTED FOR PRIVACY
 Registrant Name: REDACTED FOR PRIVACY
-Registrant Organization: x 
+Registrant Organization: x
 Registrant Street: REDACTED FOR PRIVACY
 Registrant City: REDACTED FOR PRIVACY
 Registrant State/Province: IL
@@ -52,11 +52,12 @@ Tech Phone Ext: REDACTED FOR PRIVACY
 Tech Fax: REDACTED FOR PRIVACY
 Tech Fax Ext: REDACTED FOR PRIVACY
 Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
-Name Server: naomi.ns.cloudflare.com
-Name Server: augustus.ns.cloudflare.com
+Name Server: ns2.wordpress.com
+Name Server: ns1.wordpress.com
+Name Server: ns3.wordpress.com
 DNSSEC: unsigned
 URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
->>> Last update of WHOIS database: 2022-04-04T11:44:15Z <<<
+>>> Last update of WHOIS database: 2022-04-05T08:10:58Z <<<
 
 For more information on Whois status codes, please visit https://icann.org/epp
 
