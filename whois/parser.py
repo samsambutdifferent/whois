@@ -385,7 +385,8 @@ class WhoisEntry(dict):
             domain.endswith('.credit') or
             domain.endswith('.agency') or
             domain.endswith('.community') or
-            domain.endswith('.network')
+            domain.endswith('.network') or
+            domain.endswith('.top')
         ):
             return WhoisCity(domain, text)
         elif domain.endswith('.aero'):
@@ -394,8 +395,6 @@ class WhoisEntry(dict):
             return WhoisGoog(domain, text)
         elif domain.endswith('.asia'):
             return WhoisAsia(domain, text)
-        # elif domain.endswith('.top'):
-        #     return WhoisTop(domain, text)
         # elif domain.endswith('.berlin'):
         #     return WhoisBerlin(domain, text)
         # elif domain.endswith('.bike'):
