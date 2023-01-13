@@ -388,7 +388,8 @@ class WhoisEntry(dict):
             domain.endswith('.network') or
             domain.endswith('.top') or
             domain.endswith('.bike') or
-            domain.endswith('.deals')
+            domain.endswith('.deals') or
+            domain.endswith('.domains')
         ):
             return WhoisCity(domain, text)
         elif domain.endswith('.aero'):
@@ -399,10 +400,8 @@ class WhoisEntry(dict):
             return WhoisAsia(domain, text)
         elif domain.endswith('.berlin'):
             return WhoisBerlin(domain, text)
-        # elif domain.endswith('.domains'):
-        #     return WhoisDomains(domain, text)
-        # elif domain.endswith('.gl'):
-        #     return WhoisGl(domain, text)
+        elif domain.endswith('.gl'):
+            return WhoisGl(domain, text)
         # elif domain.endswith('.lease'):
         #     return WhoisLease(domain, text)
         # elif domain.endswith('.one'):
@@ -3176,7 +3175,7 @@ class WhoisZa(WhoisEntry):
 
 
 class WhoisCity(WhoisEntry):
-    """""Whois parser for .city, .credit, .agency, .community, .network, .bike domains
+    """""Whois parser for .city, .credit, .agency, .community, .network, .bike, .deals, .domains domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3398,6 +3397,61 @@ class WhoisBerlin(WhoisEntry):
         'name_server':                    r'Name Server: *(.+)',
         'dnssec':                         r'DNSSEC: *(.+)',
         'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisGl(WhoisEntry):
+    """Whois parser for .gl domains
+    """
+    regex = {
+        'domain_name':                    r'Domain Name: *(.+)',
+        'registry_domain_id':             r'Registry Domain ID: *(.+)',
+        'registrar_url':                  r'Registrar URL: *(.+)',
+        'updated_date':                   r'Updated Date: *(.+)',
+        'creation_date':                  r'Creation Date: *(.+)',
+        'expiration_date':                r'Registry Expiry Date: *(.+)',
+        'registrar_registration_exp_date':r'Registrar Registration Expiration Date: *(.+)',
+        'registrar':                      r'Registrar: *(.+)',  
+        'registrar_iana_id':              r'Registrar IANA ID: *(.+)',
+        'status':                         r'Domain Status: *(.+)',   
+        'registry_registrant_id':         r'Registry RegistrantID: *(.+)',
+        'registrant_name':                r'RegistrantName: *(.+)',
+        'registrant_org':                 r'RegistrantOrganization: *(.+)',
+        'registrant_street':              r'RegistrantStreet: *(.+)',
+        'registrant_city':                r'RegistrantCity: *(.+)',
+        'registrant_state/province':      r'RegistrantState/Province: *(.+)',
+        'registrant_postal_code':         r'RegistrantPostal Code: *(.+)',
+        'registrant_country':             r'RegistrantCountry: *(.+)',
+        'registrant_phone':               r'RegistrantPhone: *(.+)',
+        'registrant_email':               r'RegistrantEmail: *(.+)',
+        'registry_admin_id':              r'Registry AdminID: *(.+)',
+        'admin_name':                     r'AdminName: *(.+)',
+        'admin_org':                      r'AdminOrganization: *(.+)',
+        'admin_street':                   r'AdminStreet: *(.+)',
+        'admin_city':                     r'AdminCity: *(.+)',
+        'admin_state/province':           r'AdminState/Province: *(.+)',
+        'admin_postal_code':              r'AdminPostal Code: *(.+)',
+        'admin_country':                  r'AdminCountry: *(.+)',
+        'admin_phone':                    r'AdminPhone: *(.+)',
+        'admin_email':                    r'AdminEmail: *(.+)',
+        'registry_tech_id':               r'Registry TechID: *(.+)',
+        'tech_name':                      r'TechName: *(.+)',
+        'tech_org':                       r'TechOrganization: *(.+)',
+        'tech_street':                    r'TechStreet: *(.+)',
+        'tech_city':                      r'TechCity: *(.+)',
+        'tech_state/province':            r'TechState/Province: *(.+)',
+        'tech_postal_code':               r'TechPostal Code: *(.+)',
+        'tech_country':                   r'TechCountry: *(.+)',
+        'tech_phone':                     r'TechPhone: *(.+)',
+        'tech_email':                     r'TechEmail: *(.+)',
+        'name_server':                    r'Name Server: *(.+)',
+        'dnssec':                         r'DNSSEC: *(.+)',
     }
 
     def __init__(self, domain, text):
