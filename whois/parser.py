@@ -393,7 +393,8 @@ class WhoisEntry(dict):
             domain.endswith('.lease') or
             domain.endswith('.one') or
             domain.endswith('.academy') or
-            domain.endswith('.amsterdam')
+            domain.endswith('.amsterdam') or
+            domain.endswith('.bio')
         ):
             return WhoisCity(domain, text)
         elif domain.endswith('.aero'):
@@ -408,8 +409,6 @@ class WhoisEntry(dict):
             return WhoisGl(domain, text)
         elif domain.endswith('.photo'):
             return WhoisPhoto(domain, text)
-        # elif domain.endswith('.bio'):
-        #     return WhoisBio(domain, text)
         # elif domain.endswith('.ac'):
         #     return WhoisAc(domain, text)
         # elif domain.endswith('.ag'):
@@ -3171,7 +3170,7 @@ class WhoisZa(WhoisEntry):
 
 
 class WhoisCity(WhoisEntry):
-    """""Whois parser for .city, .credit, .agency, .community, .network, .bike, .deals, .domains, .lease, .one, .academy, .amsterdam
+    """""Whois parser for .city, .credit, .agency, .community, .network, .bike, .deals, .domains, .lease, .one, .academy, .amsterdam, .bio
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
