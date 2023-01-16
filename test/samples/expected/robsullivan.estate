@@ -1,0 +1,14 @@
+{
+    "domain_name": "robsullivan.estate",
+    "expiration_date": "2023-02-12 16:00:32",
+    "updated_date": "2022-03-29 16:02:54",
+    "registrar": "GoDaddy.com, LLC",
+    "registrar_url": "http://www.godaddy.com/domains/search.aspx?ci=8990",
+    "creation_date": "2014-02-12 16:00:32",
+    "status": [
+        "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+        "clientRenewProhibited https://icann.org/epp#clientRenewProhibited",
+        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+    ]
+}

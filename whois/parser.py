@@ -372,8 +372,6 @@ class WhoisEntry(dict):
             return WhoisZa(domain, text)
         elif domain.endswith('.bz'):
             return WhoisBz(domain, text)
-        elif domain.endswith('.design'):
-            return WhoisDesign(domain, text)
         elif domain.endswith('.studio'):
             return WhoisStudio(domain, text)
         elif domain.endswith('.style'):
@@ -394,7 +392,24 @@ class WhoisEntry(dict):
             domain.endswith('.one') or
             domain.endswith('.academy') or
             domain.endswith('.amsterdam') or
-            domain.endswith('.bio')
+            domain.endswith('.bio') or
+            domain.endswith('.ac') or
+            domain.endswith('.co') or
+            domain.endswith('.mn') or
+            domain.endswith('.cloud') or
+            domain.endswith('.page') or
+            domain.endswith('.party') or
+            domain.endswith('.ps') or
+            domain.endswith('.science') or
+            domain.endswith('.fashion') or
+            domain.endswith('.finance') or
+            domain.endswith('.estate') or
+            domain.endswith('.rocks') or
+            domain.endswith('.cards') or
+            domain.endswith('.glass') or
+            domain.endswith('.melbourne') or
+            domain.endswith('.digital') or
+            domain.endswith('.design')
         ):
             return WhoisCity(domain, text)
         elif domain.endswith('.aero'):
@@ -409,16 +424,12 @@ class WhoisEntry(dict):
             return WhoisGl(domain, text)
         elif domain.endswith('.photo'):
             return WhoisPhoto(domain, text)
-        # elif domain.endswith('.ac'):
-        #     return WhoisAc(domain, text)
         # elif domain.endswith('.ag'):
         #     return WhoisAg(domain, text)
         # elif domain.endswith('.cd'):
         #     return WhoisCd(domain, text)
         # elif domain.endswith('.ci'):
         #     return WhoisCi(domain, text)
-        # elif domain.endswith('.co'):
-        #     return WhoisCo(domain, text)
         # elif domain.endswith('.cx'):
         #     return WhoisCx(domain, text)
         # elif domain.endswith('.dm'):
@@ -457,8 +468,6 @@ class WhoisEntry(dict):
         #     return WhoisMd(domain, text)
         # elif domain.endswith('.mg'):
         #     return WhoisMg(domain, text)
-        # elif domain.endswith('.mn'):
-        #     return WhoisMn(domain, text)
         # elif domain.endswith('.ms'):
         #     return WhoisMs(domain, text)
         # elif domain.endswith('.mu'):
@@ -471,38 +480,16 @@ class WhoisEntry(dict):
         #     return WhoisNg(domain, text)
         # elif domain.endswith('.om'):
         #     return WhoisOm(domain, text)
-        # elif domain.endswith('.cloud'):
-        #     return WhoisCloud(domain, text)
         # elif domain.endswith('.icu'):
         #     return WhoisIcu(domain, text)
         # elif domain.endswith('.xyz'):
         #     return WhoisXyz(domain, text)
-        # elif domain.endswith('.page'):
-        #     return WhoisPage(domain, text)
         # elif domain.endswith('.paris'):
         #     return WhoisParis(domain, text)
-        # elif domain.endswith('.ps'):
-        #     return WhoisPs(domain, text)
-        # elif domain.endswith('.fashion'):
-        #     return WhoisFashion(domain, text)
-        # elif domain.endswith('.finance'):
-        #     return WhoisFinance(domain, text)
         # elif domain.endswith('.london'):
         #     return WhoisLondon(domain, text)
-        # elif domain.endswith('.estate'):
-        #     return WhoisEstate(domain, text)
-        # elif domain.endswith('.rocks'):
-        #     return WhoisRocks(domain, text)
-        # elif domain.endswith('.cards'):
-        #     return WhoisCards(domain, text)
-        # elif domain.endswith('.glass'):
-        #     return WhoisGlass(domain, text)
-        # elif domain.endswith('.melbourne'):
-        #     return WhoisMelbourne(domain, text)
         # elif domain.endswith('.wales'):
         #     return WhoisWales(domain, text)
-        # elif domain.endswith('.digital'):
-        #     return WhoisDigital(domain, text)
         # elif domain.endswith('.vegas'):
         #     return WhoisVegas(domain, text)
         else:
@@ -1423,13 +1410,6 @@ class WhoisBz(WhoisRu):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisDesign(WhoisRu):
-    """Whois parser for .design domains"""
-
-    def __init__(self, domain, text):
-        WhoisRu.__init__(self, domain, text)
 
 
 class WhoisStudio(WhoisRu):
