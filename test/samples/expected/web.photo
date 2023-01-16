@@ -1,0 +1,24 @@
+{
+    "domain_name": [
+        "web.photo",
+        "WEB.PHOTO"
+    ],
+    "expiration_date": "2024-07-09 00:50:43.197000",
+    "updated_date": [
+        "2023-01-14 06:25:57.791000",
+        "2023-01-14 05:32:44"
+    ],
+    "registrar": "Porkbun LLC",
+    "registrar_url": [
+        "porkbun.com",
+        "http://www.porkbun.com"
+    ],
+    "creation_date": "2020-07-09 00:50:43.197000",
+    "status": [
+        "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+        "transferPeriod https://icann.org/epp#transferPeriod",
+        "clientDeleteProhibited http://icann.org/epp#clientDeleteProhibited",
+        "clientTransferProhibited http://icann.org/epp#clientTransferProhibited"
+    ]
+}

@@ -1,0 +1,176 @@
+% IANA WHOIS server
+% for more information on IANA, visit http://www.iana.org
+% This query returned 1 object
+
+refer:        whois.uniregistry.net
+
+domain:       PHOTO
+
+organisation: Registry Services, LLC
+address:      2155 E. GoDaddy Way
+address:      Tempe AZ 85284
+address:      United States of America (the)
+
+contact:      administrative
+name:         IANA Contact
+organisation: GoDaddy Registry
+address:      2155 E. GoDaddy Way
+address:      Tempe AZ 85284
+address:      United States of America (the)
+phone:        +1 480 505 8800
+fax-no:       +1 480 624 2546
+e-mail:       iana@registry.godaddy
+
+contact:      technical
+name:         Francisco Obispo
+organisation: Tucows Inc
+address:      96 Mowat Avenue
+address:      Toronto ON M6K3M1
+address:      Canada
+phone:        +1.949.903.3449
+e-mail:       trs-ops@tucows.com
+
+nserver:      NS1.UNIREGISTRY.NET 2620:57:4000:1:0:0:0:1 64.96.1.1
+nserver:      NS2.UNIREGISTRY.INFO 64.96.2.1
+nserver:      NS3.UNIREGISTRY.NET 185.159.197.3 2620:10a:80aa:0:0:0:0:3
+nserver:      NS4.UNIREGISTRY.INFO 185.159.198.3 2620:10a:80ab:0:0:0:0:3
+ds-rdata:     56016 13 2 a9c731e215bc6ba13a585782939de293da96e91dec2a3ed9cd27d34868719371
+
+whois:        whois.uniregistry.net
+
+status:       ACTIVE
+remarks:      Registration information: http://nic.photo/
+
+created:      2014-01-16
+changed:      2022-11-22
+source:       IANA
+
+# whois.uniregistry.net
+
+Domain Name: web.photo
+Registry Domain ID: DO_358c668ea22857e73d95d307868ab648-UR
+Registrar WHOIS Server: whois.porkbun.com
+Registrar URL: porkbun.com
+Updated Date: 2023-01-14T06:25:57.791Z
+Creation Date: 2020-07-09T00:50:43.197Z
+Registry Expiry Date: 2024-07-09T00:50:43.197Z
+Registrar: Porkbun LLC
+Registrar IANA ID: 1861
+Registrar Abuse Contact Email: abuse@porkbun.com
+Registrar Abuse Contact Phone: +1.5038508351
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: transferPeriod https://icann.org/epp#transferPeriod
+Registry Registrant ID: REDACTED FOR PRIVACY
+Registrant Name: REDACTED FOR PRIVACY
+Registrant Organization: Private by Design, LLC
+Registrant Street: REDACTED FOR PRIVACY
+Registrant City: REDACTED FOR PRIVACY
+Registrant State/Province: NC
+Registrant Postal Code: REDACTED FOR PRIVACY
+Registrant Country: US
+Registrant Phone: REDACTED FOR PRIVACY
+Registrant Fax: REDACTED FOR PRIVACY
+Registrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Registry Admin ID: REDACTED FOR PRIVACY
+Admin Name: REDACTED FOR PRIVACY
+Admin Organization: REDACTED FOR PRIVACY
+Admin Street: REDACTED FOR PRIVACY
+Admin City: REDACTED FOR PRIVACY
+Admin State/Province: REDACTED FOR PRIVACY
+Admin Postal Code: REDACTED FOR PRIVACY
+Admin Country: REDACTED FOR PRIVACY
+Admin Phone: REDACTED FOR PRIVACY
+Admin Fax: REDACTED FOR PRIVACY
+Admin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Registry Tech ID: REDACTED FOR PRIVACY
+Tech Name: REDACTED FOR PRIVACY
+Tech Organization: REDACTED FOR PRIVACY
+Tech Street: REDACTED FOR PRIVACY
+Tech City: REDACTED FOR PRIVACY
+Tech State/Province: REDACTED FOR PRIVACY
+Tech Postal Code: REDACTED FOR PRIVACY
+Tech Country: REDACTED FOR PRIVACY
+Tech Phone: REDACTED FOR PRIVACY
+Tech Fax: REDACTED FOR PRIVACY
+Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Registry Billing ID: REDACTED FOR PRIVACY
+Billing Name: REDACTED FOR PRIVACY
+Billing Organization: REDACTED FOR PRIVACY
+Billing Street: REDACTED FOR PRIVACY
+Billing City: REDACTED FOR PRIVACY
+Billing State/Province: REDACTED FOR PRIVACY
+Billing Postal Code: REDACTED FOR PRIVACY
+Billing Country: REDACTED FOR PRIVACY
+Billing Phone: REDACTED FOR PRIVACY
+Billing Fax: REDACTED FOR PRIVACY
+Billing Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Name Server: salvador.ns.porkbun.com
+Name Server: maceio.ns.porkbun.com
+Name Server: fortaleza.ns.porkbun.com
+Name Server: curitiba.ns.porkbun.com
+DNSSEC: unsigned
+URL of the ICANN RDDS Inaccuracy Complaint Form: https://www.icann.org/wicf/
+
+>>> Last update of WHOIS database: 2023-01-16T12:21:53.609Z <<<
+
+# whois.porkbun.com
+
+Domain Name: WEB.PHOTO
+Registry Domain ID: DO_358c668ea22857e73d95d307868ab648-UR
+Registrar WHOIS Server: whois.porkbun.com
+Registrar URL: http://www.porkbun.com
+Updated Date: 2023-01-14 05:32:44
+Created Date: 2020-07-09 00:50:43
+Registrar Registration Expiration Date: 2024-07-09 00:50:43
+Registrar: Porkbun LLC
+Registrar IANA ID: 1861
+Registrar Abuse Contact Email: abuse@porkbun.com
+Registrar Abuse Contact Phone: +1.5038508351
+Domain Status: clientDeleteProhibited http://icann.org/epp#clientDeleteProhibited
+Domain Status: clientTransferProhibited http://icann.org/epp#clientTransferProhibited
+Registry Registrant ID: 
+Registrant Name: Whois Privacy
+Registrant Organization: Private by Design, LLC
+Registrant Street: 500 Westover Dr #9816
+Registrant City: Sanford
+Registrant State/Province: NC
+Registrant Postal Code: 27330
+Registrant Country: US
+Registrant Phone: +1.9712666028
+Registrant Phone Ext: x
+Registrant Fax: x
+Registrant Fax Ext: x
+Registrant Email: https://porkbun.com/whois/contact/registrant/web.photo
+Registry Admin ID: 
+Admin Name: Whois Privacy
+Admin Organization: Private by Design, LLC
+Admin Street: 500 Westover Dr #9816
+Admin City: Sanford
+Admin State/Province: NC
+Admin Postal Code: 27330
+Admin Country: US
+Admin Phone: +1.9712666028
+Admin Phone Ext: x
+Admin Fax: x
+Admin Fax Ext: x
+Admin Email: https://porkbun.com/whois/contact/admin/web.photo
+Registry Tech ID: 
+Tech Name: Whois Privacy
+Tech Organization: Private by Design, LLC
+Tech Street: 500 Westover Dr #9816
+Tech City: Sanford
+Tech State/Province: NC
+Tech Postal Code: 27330
+Tech Country: US
+Tech Phone: +1.9712666028
+Tech Phone Ext: x
+Tech Fax: x
+Tech Fax Ext: x
+Tech Email: https://porkbun.com/whois/contact/tech/web.photo
+Name Server: salvador.ns.porkbun.com
+Name Server: maceio.ns.porkbun.com
+Name Server: fortaleza.ns.porkbun.com
+Name Server: curitiba.ns.porkbun.com
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net
+>>> Last update of WHOIS database: 2023-01-14 05:32:44 <<<
