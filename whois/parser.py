@@ -409,7 +409,8 @@ class WhoisEntry(dict):
             domain.endswith('.glass') or
             domain.endswith('.melbourne') or
             domain.endswith('.digital') or
-            domain.endswith('.design')
+            domain.endswith('.design') or
+            domain.endswith('.property')
         ):
             return WhoisCity(domain, text)
         elif domain.endswith('.aero'):
@@ -422,18 +423,28 @@ class WhoisEntry(dict):
             return WhoisBerlin(domain, text)
         elif domain.endswith('.gl'):
             return WhoisGl(domain, text)
-        elif domain.endswith('.photo'):
+        elif (
+            domain.endswith('.photo') or
+            domain.endswith('.ci') or
+            domain.endswith('.cx') or
+            domain.endswith('.dm') or
+            domain.endswith('.gs') or
+            domain.endswith('.gy') or
+            domain.endswith('.kn') or
+            domain.endswith('.ky') or
+            domain.endswith('.mg') or
+            domain.endswith('.ms') or
+            domain.endswith('.nf') or
+            domain.endswith('.ng') or
+            domain.endswith('.paris') or
+            domain.endswith('.property') or
+            domain.endswith('.wales')
+        ):
             return WhoisPhoto(domain, text)
-        # elif domain.endswith('.ag'):
-        #     return WhoisAg(domain, text)
-        # elif domain.endswith('.cd'):
-        #     return WhoisCd(domain, text)
-        # elif domain.endswith('.ci'):
-        #     return WhoisCi(domain, text)
-        # elif domain.endswith('.cx'):
-        #     return WhoisCx(domain, text)
-        # elif domain.endswith('.dm'):
-        #     return WhoisDm(domain, text)    
+        elif domain.endswith('.ag'):
+            return WhoisAg(domain, text)
+        elif domain.endswith('.cd'):
+            return WhoisCd(domain, text)  
         # elif domain.endswith('.fo'):
         #     return WhoisFo(domain, text)
         # elif domain.endswith('.gd'):
@@ -442,18 +453,10 @@ class WhoisEntry(dict):
         #     return WhoisGe(domain, text)
         # elif domain.endswith('.gq'):
         #     return WhoisGq(domain, text)
-        # elif domain.endswith('.gs'):
-        #     return WhoisGs(domain, text)
-        # elif domain.endswith('.gy'):
-        #     return WhoisGy(domain, text)
         # elif domain.endswith('.ht'):
         #     return WhoisHt(domain, text)
         # elif domain.endswith('.ke'):
         #     return WhoisKe(domain, text)
-        # elif domain.endswith('.kn'):
-        #     return WhoisKn(domain, text)
-        # elif domain.endswith('.ky'):
-        #     return WhoisKy(domain, text)
         # elif domain.endswith('.kz'):
         #     return WhoisKz(domain, text)
         # elif domain.endswith('.la'):
@@ -466,30 +469,18 @@ class WhoisEntry(dict):
         #     return WhoisMa(domain, text)
         # elif domain.endswith('.md'):
         #     return WhoisMd(domain, text)
-        # elif domain.endswith('.mg'):
-        #     return WhoisMg(domain, text)
-        # elif domain.endswith('.ms'):
-        #     return WhoisMs(domain, text)
         # elif domain.endswith('.mu'):
         #     return WhoisMu(domain, text)
         # elif domain.endswith('.nc'):
         #     return WhoisNc(domain, text)
-        # elif domain.endswith('.nf'):
-        #     return WhoisNf(domain, text)
-        # elif domain.endswith('.ng'):
-        #     return WhoisNg(domain, text)
         # elif domain.endswith('.om'):
         #     return WhoisOm(domain, text)
         # elif domain.endswith('.icu'):
         #     return WhoisIcu(domain, text)
         # elif domain.endswith('.xyz'):
         #     return WhoisXyz(domain, text)
-        # elif domain.endswith('.paris'):
-        #     return WhoisParis(domain, text)
         # elif domain.endswith('.london'):
         #     return WhoisLondon(domain, text)
-        # elif domain.endswith('.wales'):
-        #     return WhoisWales(domain, text)
         # elif domain.endswith('.vegas'):
         #     return WhoisVegas(domain, text)
         else:
@@ -3505,6 +3496,80 @@ class WhoisPhoto(WhoisEntry):
         'name_server':                    r'Name Server: *(.+)',
         'dnssec':                         r'DNSSEC: *(.+)',
         'url_of_icann_form':              r'URL of the ICANN RDDS Inaccuracy Complaint Form: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisAg(WhoisEntry):
+    """Whois parser for .ag domains
+    """
+    regex = {
+        'domain_name':                    r'Domain Name: *(.+)',
+        'registry_domain_id':             r'Registry Domain ID: *(.+)',
+        'registrar_whois_server':         r'Registrar WHOIS Server: *(.+)',
+        'registrar_url':                  r'Registrar URL: *(.+)',
+        'updated_date':                   r'Updated Date: *(.+)',
+        'creation_date':                  r'Creation Date: *(.+)',
+        'expiration_date':                r'Registry Expiry Date: *(.+)',
+        'registrar_registration_exp_date':r'Registrar Registration Expiration Date: *(.+)',
+        'registrar':                      r'Registrar: *(.+)',  
+        'registrar_iana_id':              r'Registrar IANA ID: *(.+)',
+        'reseller':                       r'Reseller: *(.+)', 
+        'status':                         r'Domain Status: *(.+)',   
+        'admin_email':                    r'Admin Email: *(.+)',
+        'registrant_org':                 r'Registrant Organization: *(.+)',
+        'registrant_state/province':      r'Registrant State/Province: *(.+)',
+        'registrant_country':             r'Registrant Country: *(.+)',
+        'name_server':                    r'Name Server: *(.+)',
+        'dnssec':                         r'DNSSEC: *(.+)',
+        'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
+        'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
+        'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+    
+
+class WhoisCd(WhoisEntry):
+    """Whois parser for .cd domains
+    """
+    regex = {
+        'domain_name':                    r'Domain Name: *(.+)',
+        'registry_domain_id':             r'Registry Domain ID: *(.+)',
+        'registrar_whois_server':         r'Registrar WHOIS Server: *(.+)',
+        'registrar_url':                  r'Registrar URL: *(.+)',
+        'updated_date':                   r'Updated Date: *(.+)',
+        'creation_date':                  r'Creation Date: *(.+)',
+        'expiration_date':                r'Registry Expiry Date: *(.+)',
+        'registrar_registration_exp_date':r'Registrar Registration Expiration Date: *(.+)',
+        'registrar':                      r'Registrar: *(.+)',  
+        'registrar_iana_id':              r'Registrar IANA ID: *(.+)',
+        'registry_registrant_id':         r'Registry Registrant ID: *(.+)',
+        'reseller':                       r'Reseller: *(.+)', 
+        'status':                         r'Domain Status: *(.+)',   
+        'admin_email':                    r'Admin Email: *(.+)',
+        'registrant_name':                r'Registrant Name: *(.+)',
+        'registrant_org':                 r'Registrant Organization: *(.+)',
+        'registrant_street':              r'Registrant Street: *(.+)',
+        'registrant_city':                r'Registrant City: *(.+)',
+        'registrant_state/province':      r'Registrant State/Province: *(.+)',
+        'registrant_country':             r'Registrant Country: *(.+)',
+        'registrant_email':               r'Registrant Email: *(.+)',
+        'registrant_phone':               r'Registrant Phone: *(.+)',
+        'name_server':                    r'Name Server: *(.+)',
+        'dnssec':                         r'DNSSEC: *(.+)',
+        'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
+        'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
+        'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
 
     def __init__(self, domain, text):
