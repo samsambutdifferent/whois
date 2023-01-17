@@ -450,12 +450,14 @@ class WhoisEntry(dict):
             domain.endswith('.la')
         ):
             return WhoisFo(domain, text)
-        # elif (
-        #     domain.endswith('.gd')
-        # ):
-        #     return WhoisGd(domain, text)
-        # elif domain.endswith('.ge'):
-        #     return WhoisGe(domain, text)
+        elif (
+            domain.endswith('.gd') or
+            domain.endswith('.lc') or
+            domain.endswith('.ly')
+        ):
+            return WhoisGd(domain, text)
+        elif domain.endswith('.ge'):
+            return WhoisGe(domain, text)
         # elif domain.endswith('.gq'):
         #     return WhoisGq(domain, text)
         # elif domain.endswith('.ht'):
@@ -464,10 +466,6 @@ class WhoisEntry(dict):
         #     return WhoisKe(domain, text)
         # elif domain.endswith('.kz'):
         #     return WhoisKz(domain, text)
-        # elif domain.endswith('.lc'):
-        #     return WhoisLc(domain, text)
-        # elif domain.endswith('.ly'):
-        #     return WhoisLy(domain, text)
         # elif domain.endswith('.ma'):
         #     return WhoisMa(domain, text)
         # elif domain.endswith('.md'):
@@ -3608,6 +3606,67 @@ class WhoisFo(WhoisEntry):
         'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
         'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisGd(WhoisEntry):
+    """Whois parser for .gd domains
+    """
+    regex = {
+        'domain_name':                    r'Domain Name: *(.+)',
+        'registry_domain_id':             r'Registry Domain ID: *(.+)',
+        'registrar_whois_server':         r'Registrar WHOIS Server: *(.+)',
+        'registrar_url':                  r'Registrar URL: *(.+)',
+        'updated_date':                   r'Updated Date: *(.+)',
+        'creation_date':                  r'Creation Date: *(.+)',
+        'expiration_date':                r'Registry Expiry Date: *(.+)',
+        'registrar_registration_exp_date':r'Registrar Registration Expiration Date: *(.+)',
+        'registrar':                      r'Registrar: *(.+)',  
+        'registrar_iana_id':              r'Registrar IANA ID: *(.+)',
+        'reseller':                       r'Reseller: *(.+)', 
+        'status':                         r'Domain Status: *(.+)',   
+        'admin_email':                    r'Admin Email: *(.+)',
+        'tech_email':                     r'Tech Email: *(.+)',
+        'registrant_email':               r'Registrant Email: *(.+)',
+        'registrant_org':                 r'Registrant Organization: *(.+)',
+        'registrant_state/province':      r'Registrant State/Province: *(.+)',
+        'registrant_country':             r'Registrant Country: *(.+)',
+        'name_server':                    r'Name Server: *(.+)',
+        'dnssec':                         r'DNSSEC: *(.+)',
+        'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
+        'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
+        'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+
+class WhoisGe(WhoisEntry):
+    """Whois parser for .ge domains
+    """
+    regex = {
+        'domain_name':                    r'Domain Name: *(.+)',
+        'creation_date':                  r'Creation Date: *(.+)',
+        'expiration_date':                r'Registry Expiry Date: *(.+)',
+        'registrar':                      r'Registrar: *(.+)',  
+        'status':                         r'Domain Status: *(.+)',  
+        'registrant':                     r'Registrant: *(.+)', 
+        'admin_name':                     r'Admin Name: *(.+)',
+        'admin_email':                    r'Admin Email: *(.+)',
+        'tech_name':                      r'Tech Name: *(.+)',
+        'tech_email':                     r'Tech Email: *(.+)',
+        'name_server':                    r'Name Server: *(.+)',
     }
 
     def __init__(self, domain, text):
