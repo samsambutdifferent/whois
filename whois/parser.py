@@ -472,8 +472,8 @@ class WhoisEntry(dict):
             return WhoisMu(domain, text)
         elif domain.endswith('.nc'):
             return WhoisNc(domain, text)
-        # elif domain.endswith('.om'):
-        #     return WhoisOm(domain, text)
+        elif domain.endswith('.om'):
+            return WhoisOm(domain, text)
         # elif domain.endswith('.icu'):
         #     return WhoisIcu(domain, text)
         # elif domain.endswith('.xyz'):
@@ -3893,6 +3893,35 @@ class WhoisNc(WhoisEntry):
         'name_server':                    r'Domain server 2          : *(.+)',
         'name_server':                    r'Domain server 3          : *(.+)',
     }
+
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisOm(WhoisEntry):
+    """Whois parser for .om domains
+    """
+    regex = {
+        'domain_name':                    r'Domain Name: *(.+)',
+        'updated_date':                   r'Last Modified: *(.+)',
+        'registrar':                      r'Registrar Name: *(.+)',
+        'status':                         r'Status: *(.+)',
+        'registrant_name':                r'Registrant Contact Name: *(.+)',
+        'registrant_email':               r'Registrant Contact Email: *(.+)',
+        'registrant_org':                 r'Registrant Contact Organization: *(.+)',
+        'registrant_city':                r'Registrant Contact City: *(.+)',
+        'registrant_country':             r'Registrant Contact Country: *(.+)',
+        'tech_name':                      r'Tech Contact Name: *(.+)',
+        'tech_email':                     r'Tech Contact Email: *(.+)',
+        'tech_org':                       r'Tech Contact Organization: *(.+)',
+        'tech_city':                      r'Tech Contact City: *(.+)',
+        'tech_country':                   r'Tech Contact Country: *(.+)',
+        'name_server':                    r'Name Server: *(.+)',
+    }
+
     def __init__(self, domain, text):
         if 'Not found:' in text:
             raise PywhoisError(text)
