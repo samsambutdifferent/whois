@@ -445,9 +445,14 @@ class WhoisEntry(dict):
             return WhoisAg(domain, text)
         elif domain.endswith('.cd'):
             return WhoisCd(domain, text)  
-        elif domain.endswith('.fo'):
+        elif (
+            domain.endswith('.fo') or
+            domain.endswith('.la')
+        ):
             return WhoisFo(domain, text)
-        # elif domain.endswith('.gd'):
+        # elif (
+        #     domain.endswith('.gd')
+        # ):
         #     return WhoisGd(domain, text)
         # elif domain.endswith('.ge'):
         #     return WhoisGe(domain, text)
@@ -459,8 +464,6 @@ class WhoisEntry(dict):
         #     return WhoisKe(domain, text)
         # elif domain.endswith('.kz'):
         #     return WhoisKz(domain, text)
-        # elif domain.endswith('.la'):
-        #     return WhoisLa(domain, text)
         # elif domain.endswith('.lc'):
         #     return WhoisLc(domain, text)
         # elif domain.endswith('.ly'):
