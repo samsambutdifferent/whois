@@ -477,13 +477,11 @@ class WhoisEntry(dict):
         elif (
             domain.endswith('.icu') or
             domain.endswith('.xyz') or
-            domain.endswith('.tech')
+            domain.endswith('.tech') or
+            domain.endswith('.london') or
+            domain.endswith('.vegas')
         ):
             return WhoisIcu(domain, text)
-        # elif domain.endswith('.london'):
-        #     return WhoisLondon(domain, text)
-        # elif domain.endswith('.vegas'):
-        #     return WhoisVegas(domain, text)
         else:
             return WhoisEntry(domain, text)
 
