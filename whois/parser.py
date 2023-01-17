@@ -466,8 +466,8 @@ class WhoisEntry(dict):
             return WhoisKe(domain, text)
         elif domain.endswith('.ma'):
             return WhoisMa(domain, text)
-        # elif domain.endswith('.md'):
-        #     return WhoisMd(domain, text)
+        elif domain.endswith('.md'):
+            return WhoisMd(domain, text)
         # elif domain.endswith('.mu'):
         #     return WhoisMu(domain, text)
         # elif domain.endswith('.nc'):
@@ -3833,6 +3833,23 @@ class WhoisMa(WhoisEntry):
         'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
 
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMd(WhoisEntry):
+    """Whois parser for .md domains
+    """
+    regex = {
+        'domain_name':                    r'Domain   name: *(.+)',
+        'domain_status':                  r'Domain  state: *(.+)',
+        'creation_date':                  r'Registered on: *(.+)',
+        'expiration_date':                r'Expires    on: *(.+)',
+        'name_server':                    r'Nameserver: *(.+)',
+    }
     def __init__(self, domain, text):
         if 'Not found:' in text:
             raise PywhoisError(text)
