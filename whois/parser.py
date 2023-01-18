@@ -3140,7 +3140,9 @@ class WhoisZa(WhoisEntry):
 
 
 class WhoisCity(WhoisEntry):
-    """""Whois parser for .city, .credit, .agency, .community, .network, .bike, .deals, .domains, .lease, .one, .academy, .amsterdam, .bio
+    """""Whois parser for .city, .credit, .agency, .community, .network, .bike, .deals, .domains, .lease,
+    .one, .academy, .amsterdam, .bio, .ac, .mn, .cloud, .page, .party, .ps, .science, .fashion, .finance,
+    .estate, .rocks, .cards, .glass, .melbourne, .digital, .design, .property domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3427,7 +3429,7 @@ class WhoisGl(WhoisEntry):
 
 
 class WhoisPhoto(WhoisEntry):
-    """Whois parser for .photo domains
+    """Whois parser for .photo, .ci, .cx, .dm, .gs, .gy, .kn, ky, .mg, . ms, .nf, .ng, .paris, .property, .wales domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3579,7 +3581,7 @@ class WhoisCd(WhoisEntry):
 
 
 class WhoisFo(WhoisEntry):
-    """Whois parser for .fo domains
+    """Whois parser for .fo, .la domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3614,7 +3616,7 @@ class WhoisFo(WhoisEntry):
 
 
 class WhoisGd(WhoisEntry):
-    """Whois parser for .gd domains
+    """Whois parser for .gd, .lc, .ly domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3929,7 +3931,7 @@ class WhoisOm(WhoisEntry):
 
 
 class WhoisIcu(WhoisEntry):
-    """Whois parser for .icu domains
+    """Whois parser for .icu, .xyz, .tech, .london, .vegas domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
