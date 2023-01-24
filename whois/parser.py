@@ -441,8 +441,7 @@ class WhoisEntry(dict):
             domain.endswith('.glass') or
             domain.endswith('.melbourne') or
             domain.endswith('.digital') or
-            domain.endswith('.design') or
-            domain.endswith('.property')
+            domain.endswith('.design')
         ):
             return WhoisCity(domain, text)
         elif (
@@ -3142,7 +3141,7 @@ class WhoisZa(WhoisEntry):
 class WhoisCity(WhoisEntry):
     """""Whois parser for .city, .credit, .agency, .community, .network, .bike, .deals, .domains, .lease,
     .one, .academy, .amsterdam, .bio, .ac, .mn, .cloud, .page, .party, .ps, .science, .fashion, .finance,
-    .estate, .rocks, .cards, .glass, .melbourne, .digital, .design, .property domains
+    .estate, .rocks, .cards, .glass, .melbourne, .digital, .design domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3224,7 +3223,6 @@ class WhoisAero(WhoisEntry):
         'registrar_iana_id':              r'Registrar IANA ID: *(.+)',
         'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
         'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
-        'reseller':                       r'Reseller: *(.+)',
         'status':                         r'Domain Status: *(.+)',
         'registrant_org':                 r'Registrant Organization: *(.+)',
         'registrant_state/province':      r'Registrant State/Province: *(.+)',  
@@ -3562,7 +3560,6 @@ class WhoisFo(WhoisEntry):
         'registrar_registration_exp_date':r'Registrar Registration Expiration Date: *(.+)',
         'registrar':                      r'Registrar: *(.+)',  
         'registrar_iana_id':              r'Registrar IANA ID: *(.+)',
-        'reseller':                       r'Reseller: *(.+)', 
         'status':                         r'Domain Status: *(.+)',   
         'admin_email':                    r'Admin Email: *(.+)',
         'billing_email':                  r'Billing Email: *(.+)',
@@ -3597,7 +3594,6 @@ class WhoisGd(WhoisEntry):
         'registrar_registration_exp_date':r'Registrar Registration Expiration Date: *(.+)',
         'registrar':                      r'Registrar: *(.+)',  
         'registrar_iana_id':              r'Registrar IANA ID: *(.+)',
-        'reseller':                       r'Reseller: *(.+)', 
         'status':                         r'Domain Status: *(.+)',   
         'admin_email':                    r'Admin Email: *(.+)',
         'tech_email':                     r'Tech Email: *(.+)',
@@ -3664,13 +3660,10 @@ class WhoisHt(WhoisEntry):
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
         'registry_domain__id':            r'Registry Domain ID: *(.+)',
-        'registrar_whois_server':         r'Registrar WHOIS Server: *(.+)',
-        'registrar_url':                  r'Registrar URL: *(.+)',
         'updated_date':                   r'Updated Date: *(.+)',
         'creation_date':                  r'Creation Date: *(.+)',
         'expiration_date':                r'Registry Expiry Date: *(.+)',
         'registrar':                      r'Registrar: *(.+)',
-        'registrar_iana_id':              r'Registrar IANA ID: *(.+)',  
         'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
         'status':                         r'Domain Status: *(.+)',
@@ -3683,9 +3676,7 @@ class WhoisHt(WhoisEntry):
         'registrant_postal_code':         r'Registrant Postal Code: *(.+)',
         'registrant_country':             r'Registrant Country: *(.+)',
         'registrant_phone':               r'Registrant Phone: *(.+)',
-        'registrant_phone_ext':           r'Registrant Phone Ext: *(.+)',
         'registrant_fax':                 r'Registrant Fax: *(.+)',
-        'registrant_fax_ext':             r'Registrant Fax Ext: *(.+)',
         'registrant_email':               r'Registrant Email: *(.+)',
         'registry_admin_id':              r'Registry Admin ID: *(.+)',
         'admin_name':                     r'Admin Name: *(.+)',
@@ -3696,9 +3687,7 @@ class WhoisHt(WhoisEntry):
         'admin_postal_code':              r'Admin Postal Code: *(.+)',
         'admin_country':                  r'Admin Country: *(.+)',
         'admin_phone':                    r'Admin Phone: *(.+)',
-        'admin_phone_ext':                r'Admin Phone Ext: *(.+)',
         'admin_fax':                      r'Admin Fax: *(.+)',
-        'admin_fax_ext':                  r'Admin Fax Ext: *(.+)',
         'admin_email':                    r'Admin Email: *(.+)',
         'registry_tech_id':               r'Registry Tech ID: *(.+)',
         'tech_name':                      r'Tech Name: *(.+)',
@@ -3709,9 +3698,7 @@ class WhoisHt(WhoisEntry):
         'tech_postal_code':               r'Tech Postal Code: *(.+)',
         'tech_country':                   r'Tech Country: *(.+)',
         'tech_phone':                     r'Tech Phone: *(.+)',
-        'tech_phone_ext':                 r'Tech Phone Ext: *(.+)',
         'tech_fax':                       r'Tech Fax: *(.+)',
-        'tech_fax_ext':                   r'Tech Fax Ext: *(.+)',
         'tech_email':                     r'Tech Email: *(.+)',
         'registry_billing_id':            r'Registry Billing ID: *(.+)',
         'billing_name':                   r'Billing Name: *(.+)',
@@ -3726,7 +3713,6 @@ class WhoisHt(WhoisEntry):
         'billing_email':                  r'Billing Email: *(.+)',
         'name_server':                    r'Name Server: *(.+)',
         'dnssec':                         r'DNSSEC: *(.+)',
-        'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
 
     def __init__(self, domain, text):
@@ -3742,33 +3728,18 @@ class WhoisKe(WhoisEntry):
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
         'registry_domain__id':            r'Registry Domain ID: *(.+)',
-        'registrar_whois_server':         r'Registrar WHOIS Server: *(.+)',
         'registrar_url':                  r'Registrar URL: *(.+)',
         'updated_date':                   r'Updated Date: *(.+)',
         'creation_date':                  r'Creation Date: *(.+)',
         'expiration_date':                r'Registry Expiry Date: *(.+)',
         'registrar':                      r'Registrar: *(.+)',
-        'registrar_iana_id':              r'Registrar IANA ID: *(.+)',  
         'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
         'status':                         r'Domain Status: *(.+)',
-        'registry_registrant_id':         r'Registry Registrant ID: *(.+)',
-        'registrant_name':                r'Registrant Name: *(.+)',
-        'registrant_org':                 r'Registrant Organization: *(.+)',
-        'registrant_street':              r'Registrant Street: *(.+)',
-        'registrant_city':                r'Registrant City: *(.+)',
-        'registrant_state/province':      r'Registrant State/Province: *(.+)',
-        'registrant_postal_code':         r'Registrant Postal Code: *(.+)',
-        'registrant_country':             r'Registrant Country: *(.+)',
-        'registrant_phone':               r'Registrant Phone: *(.+)',
-        'registrant_phone_ext':           r'Registrant Phone Ext: *(.+)',
-        'registrant_fax':                 r'Registrant Fax: *(.+)',
-        'registrant_fax_ext':             r'Registrant Fax Ext: *(.+)',
-        'registrant_email':               r'Registrant Email: *(.+)',
         'name_server':                    r'Name Server: *(.+)',
         'dnssec':                         r'DNSSEC: *(.+)',
-        'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
+
     def __init__(self, domain, text):
         if 'Not found:' in text:
             raise PywhoisError(text)
@@ -3791,15 +3762,9 @@ class WhoisMa(WhoisEntry):
         'registrant_name':                r'Registrant Name: *(.+)',
         'admin_name':                     r'Admin Name: *(.+)',
         'admin_phone':                    r'Admin Phone: *(.+)',
-        'admin_phone_ext':                r'Admin Phone Ext: *(.+)',
         'tech_name':                      r'Tech Name: *(.+)',
         'tech_phone':                     r'Tech Phone: *(.+)',
-        'tech_phone_ext':                 r'Tech Phone Ext: *(.+)',
-        'name_server':                    r'Name Server: *(.+)',
-        'dnssec':                         r'DNSSEC: *(.+)',
-        'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
-        'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
-        'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
+        'name_server':                    r'Name Server: *(.+)'
     }
 
     def __init__(self, domain, text):

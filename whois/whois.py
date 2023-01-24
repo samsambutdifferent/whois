@@ -112,6 +112,14 @@ class NICClient(object):
     PIR_HOST = "whois.publicinterestregistry.org"
     NG_HOST = "whois.nic.net.ng"
     CITY_HOST = "whois.nic.city"
+    GL_HOST = "whois.nic.gl"
+    AERO_HOST = "whois.aero"
+    XYZ_HOST = "whois.nic.xyz"
+    NC_HOST = "whois.nc"
+    MA_HOST = "whois.registre.ma"
+    GE_HOST = "whois.nic.ge"
+    KY_HOST = "whois.kyregistry.ky"
+    DESIGN_HOST = "whois.nic.design"
 
     WHOIS_RECURSE = 0x01
     WHOIS_QUICK = 0x02
@@ -308,7 +316,7 @@ class NICClient(object):
         elif tld == 'bz':
             return NICClient.RU_HOST
         elif tld == 'design':
-            return NICClient.RU_HOST
+            return NICClient.DESIGN_HOST
         elif tld == 'studio':
             return NICClient.RU_HOST
         elif tld == 'style':
@@ -345,6 +353,20 @@ class NICClient(object):
             return NICClient.NG_HOST
         elif tld == 'city':
             return NICClient.CITY_HOST
+        elif tld == 'gl':
+            return NICClient.GL_HOST
+        elif tld == 'aero':
+            return NICClient.AERO_HOST
+        elif tld == 'xyz':
+            return NICClient.XYZ_HOST
+        elif tld == 'nc':
+            return NICClient.NC_HOST
+        elif tld == 'ma':
+            return NICClient.MA_HOST
+        elif tld == 'ge':
+            return NICClient.GE_HOST
+        elif tld == 'ky':
+            return NICClient.KY_HOST
         else:
             server = tld + NICClient.QNICHOST_TAIL
             try:
