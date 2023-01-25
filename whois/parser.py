@@ -706,13 +706,21 @@ class WhoisLt(WhoisEntry):
 class WhoisName(WhoisEntry):
     """Whois parser for .name domains"""
     regex = {
-        'domain_name_id':  r'Registry Domain ID: *(.+)',
+        'domain_name_id':  r'Domain Name ID: *(.+)',
         'domain_name':     r'Domain Name: *(.+)',
-        'registrar_id':    r'Registrar IANA ID: *(.+)',
-        'registrar':       r'Registrar: *(.+)',
+        'registrar_id':    r'Sponsoring Registrar ID: *(.+)',
+        'registrar':       r'Sponsoring Registrar: *(.+)',
+        'registrant_id':   r'Registrant ID: *(.+)',
+        'admin_id':        r'Admin ID: *(.+)',
+        'technical_id':    r'Tech ID: *(.+)',
+        'billing_id':      r'Billing ID: *(.+)',
+        'creation_date':   r'Created On: *(.+)',
+        'expiration_date': r'Expires On: *(.+)',
+        'updated_date':    r'Updated On: *(.+)',
+        'name_server_ids': r'Name Server ID: *(.+)',  # list of name server ids
+        'name_servers':    r'Name Server: *(.+)',  # list of name servers
         'status':          r'Domain Status: *(.+)',  # list of statuses
     }
-
     def __init__(self, domain, text):
         if 'No match for ' in text:
             raise PywhoisError(text)
