@@ -713,19 +713,10 @@ class WhoisLt(WhoisEntry):
 class WhoisName(WhoisEntry):
     """Whois parser for .name domains"""
     regex = {
-        'domain_name_id':  r'Domain Name ID: *(.+)',
+        'domain_name_id':  r'Registry Domain ID: *(.+)',
         'domain_name':     r'Domain Name: *(.+)',
-        'registrar_id':    r'Sponsoring Registrar ID: *(.+)',
-        'registrar':       r'Sponsoring Registrar: *(.+)',
-        'registrant_id':   r'Registrant ID: *(.+)',
-        'admin_id':        r'Admin ID: *(.+)',
-        'technical_id':    r'Tech ID: *(.+)',
-        'billing_id':      r'Billing ID: *(.+)',
-        'creation_date':   r'Created On: *(.+)',
-        'expiration_date': r'Expires On: *(.+)',
-        'updated_date':    r'Updated On: *(.+)',
-        'name_server_ids': r'Name Server ID: *(.+)',  # list of name server ids
-        'name_servers':    r'Name Server: *(.+)',  # list of name servers
+        'registrar_id':    r'Registrar IANA ID: *(.+)',
+        'registrar':       r'Registrar: *(.+)',
         'status':          r'Domain Status: *(.+)',  # list of statuses
     }
 
@@ -1001,7 +992,6 @@ class WhoisFi(WhoisEntry):
         'name':                           r'Holder\s*name\.*: (.+)',
         'address':                        r'[Holder\w\W]address\.*: (.+)',
         'phone':                          r'Holder[\s\w\W]+phone\.*: (.+)',
-        'email':                          r'holder email\.*: *([\S]+)',
         'status':                         r'status\.*: (.+)',  # list of statuses
         'creation_date':                  r'created\.*: *([\S]+)',
         'updated_date':                   r'modified\.*: *([\S]+)',
@@ -1010,7 +1000,8 @@ class WhoisFi(WhoisEntry):
         'name_server_statuses':           r'nserver\.*: *([\S]+ \[\S+\])',  # list of name servers and statuses
         'dnssec':                         r'dnssec\.*: *([\S]+)',
         'registrar':                      r'Registrar\s*registrar\.*: (.+)',
-        'registrar_site':                 r'Registrar[\s\w\W]+www\.*: (.+)'
+        'registrar_site':                 r'Registrar[\s\w\W]+www\.*: (.+)',
+        'emails':                         EMAIL_REGEX,  
 
     }
 
