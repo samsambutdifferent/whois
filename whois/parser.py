@@ -1057,14 +1057,11 @@ class WhoisEu(WhoisEntry):
     """Whois parser for .eu domains"""
     regex = {
         'domain_name':      r'Domain: *([^\n\r]+)',
-        'tech_name':        r'Technical: *Name: *([^\n\r]+)',
-        'tech_org':         r'Technical: *Name: *[^\n\r]+\s*Organisation: *([^\n\r]+)',
-        'tech_phone':       r'Technical: *Name: *[^\n\r]+\s*Organisation: *[^\n\r]+\s*Language: *[^\n\r]+\s*Phone: *(['
-                            r'^\n\r]+)',
-        'tech_fax':         r'Technical: *Name: *[^\n\r]+\s*Organisation: *[^\n\r]+\s*Language: *[^\n\r]+\s*Phone: *['
-                            r'^\n\r]+\s*Fax: *([^\n\r]+)',
-        'tech_email':       r'Technical: *Name: *[^\n\r]+\s*Organisation: *[^\n\r]+\s*Language: *[^\n\r]+\s*Phone: *['
-                            r'^\n\r]+\s*Fax: *[^\n\r]+\s*Email: *([^\n\r]+)',
+        'tech_name':        r'Technical:\n(?:.|\n)*Name: (\S+)\n',
+        'tech_org':         r'Technical:\n(?:.|\n)*Organisation: (\S+)\n',
+        'tech_phone':       r'Technical:\n(?:.|\n)*Phone: (\S+)\n',
+        'tech_fax':         r'Technical:\n(?:.|\n)*Fax: (\S+)\n',
+        'tech_email':       r'Technical:\n(?:.|\n)*Email: (\S+)\n',
         'registrar':        r'Registrar:\n *Name: *([^\n\r]+)',
         'registrar_url':    r'\n *Website: *([^\n\r]+)',
         'name_servers':     r'Name servers:\n *([\n\S\s]+)',  # list of name servers
