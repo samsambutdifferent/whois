@@ -2717,7 +2717,7 @@ class WhoisBy(WhoisEntry):
     regex = {
         'domain_name':          r'Domain name: *(.+)',
         'registrar':            r'Registrar: *(.+)',
-        'updated_date':         r'Update Date: *(.+)',
+        'updated_date':         r'Updated Date: *(.+)',
         'creation_date':        r'Creation Date: *(.+)',
         'expiration_date':      r'Expiration Date: *(.+)',
         'name_servers':         r'Name Server: *(.+)',  # list of name servers
