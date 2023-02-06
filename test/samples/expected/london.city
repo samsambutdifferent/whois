@@ -1,8 +1,21 @@
 {
    "domain_name":"london.city",
-   "expiration_date":"2022-08-01 16:00:00",
-   "updated_date":"2022-02-20 16:40:14",
+   "expiration_date":"2023-08-01 16:00:00",
+   "updated_date":"2022-08-17 18:58:37",
    "creation_date":"2015-08-01 16:00:00",
+   [
+      'clientTransferProhibited https://icann.org/epp#clientTransferProhibited',
+   'clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited',
+   'clientRenewProhibited https://icann.org/epp#clientRenewProhibited',
+   'clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited'
+   ]
+   [
+      'clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited',
+      'clientRenewProhibited https://icann.org/epp#clientRenewProhibited',
+      'clientTransferProhibited https://icann.org/epp#clientTransferProhibited',
+      'clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited'
+   ]
+
    "status":[
       "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
       "clientRenewProhibited https://icann.org/epp#clientRenewProhibited",
@@ -10,5 +23,5 @@
       "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
    ],
    "registrar": "GoDaddy.com, LLC",
-   "registrar_url": "http://www.godaddy.com/domains/search.aspx?ci=8990"
+   "registrar_url": "http://www.godaddy.com"
 }

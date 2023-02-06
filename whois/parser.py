@@ -404,8 +404,9 @@ class WhoisEntry(dict):
             return WhoisMu(domain, text)
         elif domain.endswith('.nc'):
             return WhoisNc(domain, text)
+        elif domain.endswith('.city'):
+            return WhoisCity(domain, text)
         elif (
-            domain.endswith('.city') or
             domain.endswith('.credit') or
             domain.endswith('.agency') or
             domain.endswith('.community') or
@@ -437,7 +438,7 @@ class WhoisEntry(dict):
             domain.endswith('.digital') or
             domain.endswith('.design')
         ):
-            return WhoisCity(domain, text)
+            return WhoisCredit(domain, text)
         elif (
             domain.endswith('.photo') or
             domain.endswith('.ci') or
@@ -3127,8 +3128,8 @@ class WhoisZa(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisCity(WhoisEntry):
-    """""Whois parser for .city, .credit, .agency, .community, .network, .bike, .deals, .domains, .lease,
+class WhoisCredit(WhoisEntry):
+    """""Whois parser for .credit, .agency, .community, .network, .bike, .deals, .domains, .lease,
     .one, .academy, .amsterdam, .bio, .ac, .mn, .cloud, .page, .party, .ps, .science, .fashion, .finance,
     .estate, .rocks, .cards, .glass, .melbourne, .digital, .design domains
     """
@@ -3140,6 +3141,73 @@ class WhoisCity(WhoisEntry):
         'updated_date':                   r'Updated Date: *(.+)',
         'creation_date':                  r'Creation Date: *(.+)',
         'expiration_date':                r'Registry Expiry Date: *(.+)',
+        'registrar':                      r'Registrar: *(.+)',
+        'registrar_iana_id':              r'Registrar IANA ID: *(.+)',  
+        'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',
+        'registrar_abuse_contact_phone':  r'Registrar Abuse Contact Phone: *(.+)',
+        'status':                         r'Domain Status: *(.+)',
+        'registry_registrant_id':         r'Registry Registrant ID: *(.+)',
+        'registrant_name':                r'Registrant Name: *(.+)',
+        'registrant_org':                 r'Registrant Organization: *(.+)',
+        'registrant_street':              r'Registrant Street: *(.+)',
+        'registrant_city':                r'Registrant City: *(.+)',
+        'registrant_state/province':      r'Registrant State/Province: *(.+)',
+        'registrant_postal_code':         r'Registrant Postal Code: *(.+)',
+        'registrant_country':             r'Registrant Country: *(.+)',
+        'registrant_phone':               r'Registrant Phone: *(.+)',
+        'registrant_phone_ext':           r'Registrant Phone Ext: *(.+)',
+        'registrant_fax':                 r'Registrant Fax: *(.+)',
+        'registrant_fax_ext':             r'Registrant Fax Ext: *(.+)',
+        'registrant_email':               r'Registrant Email: *(.+)',
+        'registry_admin_id':              r'Registry Admin ID: *(.+)',
+        'admin_name':                     r'Admin Name: *(.+)',
+        'admin_org':                      r'Admin Organization: *(.+)',
+        'admin_street':                   r'Admin Street: *(.+)',
+        'admin_city':                     r'Admin City: *(.+)',
+        'admin_state/province':           r'Admin State/Province: *(.+)',
+        'admin_postal_code':              r'Admin Postal Code: *(.+)',
+        'admin_country':                  r'Admin Country: *(.+)',
+        'admin_phone':                    r'Admin Phone: *(.+)',
+        'admin_phone_ext':                r'Admin Phone Ext: *(.+)',
+        'admin_fax':                      r'Admin Fax: *(.+)',
+        'admin_fax_ext':                  r'Admin Fax Ext: *(.+)',
+        'admin_email':                    r'Admin Email: *(.+)',
+        'registry_tech_id':               r'Registry Tech ID: *(.+)',
+        'tech_name':                      r'Tech Name: *(.+)',
+        'tech_org':                       r'Tech Organization: *(.+)',
+        'tech_street':                    r'Tech Street: *(.+)',
+        'tech_city':                      r'Tech City: *(.+)',
+        'tech_state/province':            r'Tech State/Province: *(.+)',
+        'tech_postal_code':               r'Tech Postal Code: *(.+)',
+        'tech_country':                   r'Tech Country: *(.+)',
+        'tech_phone':                     r'Tech Phone: *(.+)',
+        'tech_phone_ext':                 r'Tech Phone Ext: *(.+)',
+        'tech_fax':                       r'Tech Fax: *(.+)',
+        'tech_fax_ext':                   r'Tech Fax Ext: *(.+)',
+        'tech_email':                     r'Tech Email: *(.+)',
+        'name_server':                    r'Name Server: *(.+)',
+        'dnssec':                         r'DNSSEC: *(.+)',
+        'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCity(WhoisEntry):
+    """""Whois parser for .city domains
+    """
+    regex = {
+        'domain_name':                    r'Domain Name: *(.+)',
+        'registry_domain__id':            r'Registry Domain ID: *(.+)',
+        'registrar_whois_server':         r'Registrar WHOIS Server: *(.+)',
+        'registrar_url':                  r'Registrar URL: *(.+)',
+        'updated_date':                   r'Updated Date: *(.+)',
+        'creation_date':                  r'Creation Date: *(.+)',
+        'expiration_date':                r'Registrar Registration Expiration Date: *(.+)',
         'registrar':                      r'Registrar: *(.+)',
         'registrar_iana_id':              r'Registrar IANA ID: *(.+)',  
         'registrar_abuse_contact_email':  r'Registrar Abuse Contact Email: *(.+)',

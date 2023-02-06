@@ -9,10 +9,10 @@ Registrar: GoDaddy.com, LLC
 Registrar IANA ID: 146
 Registrar Abuse Contact Email: abuse@godaddy.com
 Registrar Abuse Contact Phone: +1.4806242505
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
 Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
 Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
-Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
-Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
 Registry Registrant ID: CR493711976
 Registrant Name: Registration Private
 Registrant Organization: Domains By Proxy, LLC
