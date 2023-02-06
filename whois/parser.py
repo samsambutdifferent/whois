@@ -708,8 +708,8 @@ class WhoisName(WhoisEntry):
     regex = {
         'domain_name_id':  r'Domain Name ID: *(.+)',
         'domain_name':     r'Domain Name: *(.+)',
-        'registrar_id':    r'Sponsoring Registrar ID: *(.+)',
-        'registrar':       r'Sponsoring Registrar: *(.+)',
+        'registrar':       r'Registrar: *(.+)',
+        'registrant_id':   r'Registrant ID: *(.+)',
         'registrant_id':   r'Registrant ID: *(.+)',
         'admin_id':        r'Admin ID: *(.+)',
         'technical_id':    r'Tech ID: *(.+)',
