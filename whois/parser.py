@@ -406,39 +406,66 @@ class WhoisEntry(dict):
             return WhoisNc(domain, text)
         elif domain.endswith('.city'):
             return WhoisCity(domain, text)
-        elif (
-            domain.endswith('.credit') or
-            domain.endswith('.agency') or
-            domain.endswith('.community') or
-            domain.endswith('.network') or
-            domain.endswith('.top') or
-            domain.endswith('.bike') or
-            domain.endswith('.deals') or
-            domain.endswith('.domains') or
-            domain.endswith('.lease') or
-            domain.endswith('.one') or
-            domain.endswith('.academy') or
-            domain.endswith('.amsterdam') or
-            domain.endswith('.bio') or
-            domain.endswith('.ac') or
-            domain.endswith('.co') or
-            domain.endswith('.mn') or
-            domain.endswith('.cloud') or
-            domain.endswith('.page') or
-            domain.endswith('.party') or
-            domain.endswith('.ps') or
-            domain.endswith('.science') or
-            domain.endswith('.fashion') or
-            domain.endswith('.finance') or
-            domain.endswith('.estate') or
-            domain.endswith('.rocks') or
-            domain.endswith('.cards') or
-            domain.endswith('.glass') or
-            domain.endswith('.melbourne') or
-            domain.endswith('.digital') or
-            domain.endswith('.design')
-        ):
+        elif domain.endswith('.credit'):
             return WhoisCredit(domain, text)
+        elif domain.endswith('.agency'):
+            return WhoisAgency(domain, text)
+        elif domain.endswith('.community'):
+            return WhoisCommunity(domain, text)
+        elif domain.endswith('.network'):
+            return WhoisNetwork(domain, text)
+        elif domain.endswith('.top'):
+            return WhoisTop(domain, text)
+        elif domain.endswith('.bike'):
+            return WhoisBike(domain, text)
+        elif domain.endswith('.deals'):
+            return WhoisDeals(domain, text)
+        elif domain.endswith('.domains'):
+            return WhoisDomains(domain, text)
+        elif domain.endswith('.lease'):
+            return WhoisLease(domain, text)
+        elif domain.endswith('.one'):
+            return WhoisOne(domain, text)
+        elif domain.endswith('.academy'):
+            return WhoisAcademy(domain, text)
+        elif domain.endswith('.amsterdam'):
+            return WhoisAmsterdam(domain, text)
+        elif domain.endswith('.bio'):
+            return WhoisBio(domain, text)
+        elif domain.endswith('.ac'):
+            return WhoisAc(domain, text)
+        elif domain.endswith('.co'):
+            return WhoisCo(domain, text)
+        elif domain.endswith('.mn'):
+            return WhoisMn(domain, text)
+        elif domain.endswith('.cloud'):
+            return WhoisCloud(domain, text)
+        elif domain.endswith('.page'):
+            return WhoisPage(domain, text)
+        elif domain.endswith('.party'):
+            return WhoisParty(domain, text)
+        elif domain.endswith('.ps'):
+            return WhoisPs(domain, text)
+        elif domain.endswith('.science'):
+            return WhoisScience(domain, text)
+        elif domain.endswith('.fashion'):
+            return WhoisFashion(domain, text)
+        elif domain.endswith('.finance'):
+            return WhoisFinance(domain, text)
+        elif domain.endswith('.estate'):
+            return WhoisEstate(domain, text)
+        elif domain.endswith('.rocks'):
+            return WhoisRocks(domain, text)
+        elif domain.endswith('.cards'):
+            return WhoisCards(domain, text)
+        elif domain.endswith('.glass'):
+            return WhoisGlass(domain, text)
+        elif domain.endswith('.melbourne'):
+            return WhoisMelbourne(domain, text)
+        elif domain.endswith('.digital'):
+            return WhoisDigital(domain, text)
+        elif domain.endswith('.design'):
+            return WhoisDesign(domain, text)
         if domain.endswith('.photo'):
             return WhoisPhoto(domain, text)
         if domain.endswith('.ci'):
@@ -3141,9 +3168,7 @@ class WhoisZa(WhoisEntry):
 
 
 class WhoisCredit(WhoisEntry):
-    """""Whois parser for .credit, .agency, .community, .network, .bike, .deals, .domains, .lease,
-    .one, .academy, .amsterdam, .bio, .ac, .mn, .cloud, .page, .party, .ps, .science, .fashion, .finance,
-    .estate, .rocks, .cards, .glass, .melbourne, .digital, .design domains
+    """""Whois parser for .credit domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3202,6 +3227,306 @@ class WhoisCredit(WhoisEntry):
         'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
 
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisAgency(WhoisCredit):
+    """""Whois parser for .agency domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCommunity(WhoisCredit):
+    """""Whois parser for .community domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisNetwork(WhoisCredit):
+    """""Whois parser for .network domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisBike(WhoisCredit):
+    """""Whois parser for .bike domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCo(WhoisCredit):
+    """""Whois parser for .co domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisTop(WhoisCredit):
+    """""Whois parser for .top domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisDeals(WhoisCredit):
+    """""Whois parser for .deals domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisDomains(WhoisCredit):
+    """""Whois parser for .domains domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisLease(WhoisCredit):
+    """""Whois parser for .lease domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisOne(WhoisCredit):
+    """""Whois parser for .one domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisAcademy(WhoisCredit):
+    """""Whois parser for .academy domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisAmsterdam(WhoisCredit):
+    """""Whois parser for .amsterdam domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisBio(WhoisCredit):
+    """""Whois parser for .bio domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisAc(WhoisCredit):
+    """""Whois parser for .ac domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMn(WhoisCredit):
+    """""Whois parser for .mn domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCloud(WhoisCredit):
+    """""Whois parser for .cloud domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+ 
+
+class WhoisPage(WhoisCredit):
+    """""Whois parser for .page domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisParty(WhoisCredit):
+    """""Whois parser for .party domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisPs(WhoisCredit):
+    """""Whois parser for .ps domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisScience(WhoisCredit):
+    """""Whois parser for .science domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisFashion(WhoisCredit):
+    """""Whois parser for .fashion domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisFinance(WhoisCredit):
+    """""Whois parser for .finance domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisFinance(WhoisCredit):
+    """""Whois parser for .finance domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisEstate(WhoisCredit):
+    """""Whois parser for .estate domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisRocks(WhoisCredit):
+    """""Whois parser for .rocks domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCards(WhoisCredit):
+    """""Whois parser for .cards domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisGlass(WhoisCredit):
+    """""Whois parser for .glass domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMelbourne(WhoisCredit):
+    """""Whois parser for .melbourne domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisDigital(WhoisCredit):
+    """""Whois parser for .digital domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisDesign(WhoisCredit):
+    """""Whois parser for .design domains
+    """
     def __init__(self, domain, text):
         if 'Not found:' in text:
             raise PywhoisError(text)
