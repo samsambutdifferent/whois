@@ -467,16 +467,14 @@ class WhoisEntry(dict):
             return WhoisLondon(domain, text)
         if domain.endswith('.vegas'):
             return WhoisVegas(domain, text)
-        elif (
-            domain.endswith('.gd') or
-            domain.endswith('.ly')
-        ):
+        if domain.endswith('.gd'):
             return WhoisGd(domain, text)
-        elif (
-            domain.endswith('.fo') or
-            domain.endswith('.la')
-        ):
+        if domain.endswith('.ly'):
+            return WhoisLy(domain, text)
+        if domain.endswith('.fo'):
             return WhoisFo(domain, text)
+        if domain.endswith('.la'):
+            return WhoisLa(domain, text)
         else:
             return WhoisEntry(domain, text)
 
@@ -3534,7 +3532,7 @@ class WhoisCd(WhoisEntry):
 
 
 class WhoisFo(WhoisEntry):
-    """Whois parser for .fo, .la domains
+    """Whois parser for .fo domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3567,8 +3565,18 @@ class WhoisFo(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
+class WhoisLa(WhoisFo):
+    """Whois parser for .la domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
 class WhoisGd(WhoisEntry):
-    """Whois parser for .gd, .ly domains
+    """Whois parser for .gd domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3595,6 +3603,16 @@ class WhoisGd(WhoisEntry):
         'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
 
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisLy(WhoisGd):
+    """Whois parser for .ly domains
+    """
     def __init__(self, domain, text):
         if 'Not found:' in text:
             raise PywhoisError(text)
@@ -3808,7 +3826,7 @@ class WhoisNc(WhoisEntry):
 
 
 class WhoisIcu(WhoisEntry):
-    """Whois parser for .icu, .xyz, .tech, .london, .vegas domains
+    """Whois parser for .icu domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
