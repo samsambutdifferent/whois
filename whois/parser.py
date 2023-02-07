@@ -439,24 +439,36 @@ class WhoisEntry(dict):
             domain.endswith('.design')
         ):
             return WhoisCredit(domain, text)
-        elif (
-            domain.endswith('.photo') or
-            domain.endswith('.ci') or
-            domain.endswith('.cx') or
-            domain.endswith('.dm') or
-            domain.endswith('.gs') or
-            domain.endswith('.gy') or
-            domain.endswith('.kn') or
-            domain.endswith('.ky') or
-            domain.endswith('.mg') or
-            domain.endswith('.ms') or
-            domain.endswith('.nf') or
-            domain.endswith('.ng') or
-            domain.endswith('.paris') or
-            domain.endswith('.property') or
-            domain.endswith('.wales')
-        ):
+        if domain.endswith('.photo'):
             return WhoisPhoto(domain, text)
+        if domain.endswith('.ci'):
+            return WhoisCi(domain, text)
+        if domain.endswith('.cx'):
+            return WhoisCx(domain, text)
+        if domain.endswith('.dm'):
+            return WhoisDm(domain, text)
+        if domain.endswith('.gs'):
+            return WhoisGs(domain, text)
+        if domain.endswith('.gy'):
+            return WhoisGy(domain, text)
+        if domain.endswith('.kn'):
+            return WhoisKn(domain, text)
+        if domain.endswith('.ky'):
+            return WhoisKy(domain, text)
+        if domain.endswith('.mg'):
+            return WhoisMg(domain, text)
+        if domain.endswith('.ms'):
+            return WhoisMs(domain, text)
+        if domain.endswith('.nf'):
+            return WhoisNf(domain, text)
+        if domain.endswith('.ng'):
+            return WhoisNg(domain, text)
+        if domain.endswith('.paris'):
+            return WhoisParis(domain, text)
+        if domain.endswith('.property'):
+            return WhoisProperty(domain, text)
+        if domain.endswith('.wales'):
+            return WhoisWales(domain, text)
         if domain.endswith('.icu'):
             return WhoisIcu(domain, text)
         if domain.endswith('.xyz'):
@@ -3382,7 +3394,7 @@ class WhoisGl(WhoisEntry):
 
 
 class WhoisPhoto(WhoisEntry):
-    """Whois parser for .photo, .ci, .cx, .dm, .gs, .gy, .kn, ky, .mg, . ms, .nf, .ng, .paris, .property, .wales domains
+    """Whois parser for .photo domains
     """
     regex = {
         'domain_name':                    r'Domain Name: *(.+)',
@@ -3452,6 +3464,156 @@ class WhoisPhoto(WhoisEntry):
         'url_of_icann_form':              r'URL of the ICANN RDDS Inaccuracy Complaint Form: *(.+)',
     }
 
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCi(WhoisPhoto):
+    """Whois parser for .ci domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCx(WhoisPhoto):
+    """Whois parser for .cx domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisDm(WhoisPhoto):
+    """Whois parser for .dm domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisGy(WhoisPhoto):
+    """Whois parser for .gy domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisGs(WhoisPhoto):
+    """Whois parser for .gs domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisGy(WhoisPhoto):
+    """Whois parser for .gy domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisKn(WhoisPhoto):
+    """Whois parser for .kn domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisKy(WhoisPhoto):
+    """Whois parser for .ky domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMg(WhoisPhoto):
+    """Whois parser for .mg domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMs(WhoisPhoto):
+    """Whois parser for .ms domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisNf(WhoisPhoto):
+    """Whois parser for .nf domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisNg(WhoisPhoto):
+    """Whois parser for .ng domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisParis(WhoisPhoto):
+    """Whois parser for .paris domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisProperty(WhoisPhoto):
+    """Whois parser for .property domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisWales(WhoisPhoto):
+    """Whois parser for .wales domains
+    """
     def __init__(self, domain, text):
         if 'Not found:' in text:
             raise PywhoisError(text)
