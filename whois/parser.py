@@ -457,14 +457,16 @@ class WhoisEntry(dict):
             domain.endswith('.wales')
         ):
             return WhoisPhoto(domain, text)
-        elif (
-            domain.endswith('.icu') or
-            domain.endswith('.xyz') or
-            domain.endswith('.tech') or
-            domain.endswith('.london') or
-            domain.endswith('.vegas')
-        ):
+        if domain.endswith('.icu'):
             return WhoisIcu(domain, text)
+        if domain.endswith('.xyz'):
+            return WhoisXyz(domain, text)
+        if domain.endswith('.tech'):
+            return WhoisTech(domain, text)
+        if domain.endswith('.london'):
+            return WhoisLondon(domain, text)
+        if domain.endswith('.vegas'):
+            return WhoisVegas(domain, text)
         elif (
             domain.endswith('.gd') or
             domain.endswith('.ly')
@@ -3832,6 +3834,46 @@ class WhoisIcu(WhoisEntry):
         'url_of_icann_form':              r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)'
     }
 
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisXyz(WhoisIcu):
+    """Whois parser .xyz domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisTech(WhoisIcu):
+    """Whois parser .tech domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisLondon(WhoisIcu):
+    """Whois parser .london domains
+    """
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisVegas(WhoisIcu):
+    """Whois parser .london domains
+    """
     def __init__(self, domain, text):
         if 'Not found:' in text:
             raise PywhoisError(text)
